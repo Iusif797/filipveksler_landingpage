@@ -32,6 +32,9 @@ body {
     line-height: 1.8;
     background-color: var(--bg-light);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: pan-y;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -56,6 +59,9 @@ ul {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    padding: 0 2rem;
+    width: 100%;
+    max-width: 100%;
 }
 
 .hero-title {
@@ -83,6 +89,7 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 1.5rem;
+    padding: 0 1rem;
 }
 
 .role-badge {
@@ -248,6 +255,8 @@ ul {
     position: relative;
     padding: 5px 0;
     opacity: 0.8;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .menu-item::after, .current::after {
@@ -398,6 +407,8 @@ ul {
     cursor: pointer;
     z-index: 1001;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .bar {
@@ -432,6 +443,12 @@ ul {
 @media (max-width: 768px) {
     .header {
         padding: 0 1.5rem;
+        height: 70px;
+    }
+    
+    .logo {
+        height: 40px;
+        width: 40px;
     }
     
     .navbar {
@@ -439,53 +456,37 @@ ul {
     }
     
     .header1 {
-        height: 70vh;
+        height: 100vh;
+        min-height: 600px;
         background-attachment: scroll;
+        padding-top: 70px;
+    }
+    
+    .hero-content {
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        line-height: 1.1;
     }
     
     .hero-subtitle {
         gap: 0;
         margin-top: 1rem;
+        flex-wrap: wrap;
     }
     
     .role-badge {
         padding: 0.5rem 0.9rem;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
     }
     
     .separator {
-        height: 18px;
-        margin: 0 0.5rem;
-    }
-    
-    .title {
-        font-size: 2.5rem;
-        letter-spacing: 2px;
-        line-height: 1.1;
-        padding: 0 1rem;
-    }
-    
-    .subtitle {
-        font-size: 0.75rem;
-        padding: 0.6rem 1rem;
-        letter-spacing: 2px;
-    }
-    
-    .journey-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .journey-card {
-        padding: 2rem;
-    }
-    
-    .journey-number {
-        font-size: 2rem;
-    }
-    
-    .journey-title {
-        font-size: 1.3rem;
+        height: 16px;
+        margin: 0 0.4rem;
     }
     
     .container {
@@ -495,20 +496,20 @@ ul {
     .welcome-section {
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        gap: 2.5rem;
     }
     
     .homepic {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         height: auto;
         aspect-ratio: 1/1;
-        box-shadow: 15px 15px 0 var(--primary-color), 0 8px 30px rgba(0,0,0,0.3);
+        box-shadow: 12px 12px 0 var(--primary-color), 0 6px 25px rgba(0,0,0,0.2);
     }
     
     .homepic:hover {
-        transform: translate(-3px, -3px) rotate(1deg);
-        box-shadow: 18px 18px 0 var(--primary-color), 0 12px 35px rgba(0,0,0,0.4);
+        transform: translate(-2px, -2px) rotate(0.5deg);
+        box-shadow: 14px 14px 0 var(--primary-color), 0 8px 30px rgba(0,0,0,0.25);
     }
     
     .welcome-content {
@@ -516,35 +517,111 @@ ul {
     }
     
     .welcome-text {
-        font-size: 0.95rem;
+        font-size: 1rem;
         text-align: left;
-        line-height: 1.7;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
     }
     
     .signature {
         width: 120px;
     }
     
+    section {
+        padding: 5rem 0;
+    }
+    
+    .section-content {
+        padding: 0 1.5rem;
+    }
+    
     .section-title {
-        font-size: 3rem;
-        top: 5%;
-        opacity: 0.05;
+        font-size: 4rem;
+        top: 10%;
+        opacity: 0.04;
+        letter-spacing: 8px;
     }
     
     .section-heading {
-        font-size: 1.8rem;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .section-heading::after {
+        width: 50px;
+        height: 2px;
+        margin: 0.8rem auto 0;
     }
     
     .section-text {
-        font-size: 0.95rem;
+        font-size: 1rem;
         text-align: left;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+    
+    .glass-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .journey-card {
+        padding: 1.75rem;
+        border-radius: 16px;
+    }
+    
+    .journey-card-header {
+        margin-bottom: 1.25rem;
+    }
+    
+    .journey-number {
+        font-size: 2rem;
+    }
+    
+    .journey-date {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .journey-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .journey-description {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .card-content {
+        padding: 1.25rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-excerpt {
+        font-size: 0.85rem;
     }
     
     .btn {
-        padding: 0.9rem 2rem;
+        padding: 1rem 2rem;
         width: 100%;
+        max-width: 100%;
         text-align: center;
         font-size: 0.85rem;
+        letter-spacing: 1.5px;
     }
     
     .up {
@@ -552,6 +629,7 @@ ul {
         right: 20px;
         width: 50px;
         height: 50px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     
     .upIcon {
@@ -561,6 +639,14 @@ ul {
     
     .hamburger {
         display: block;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .bar {
+        width: 25px;
+        height: 2px;
+        margin: 4px auto;
     }
     
     .hamburger.active .bar:nth-child(2) {
@@ -579,7 +665,7 @@ ul {
         position: fixed;
         left: -100%;
         top: 0;
-        gap: 2rem;
+        gap: 1.5rem;
         flex-direction: column;
         background-color: rgba(10, 10, 10, 0.98);
         width: 100%;
@@ -587,9 +673,10 @@ ul {
         text-align: center;
         transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
         justify-content: center;
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         z-index: 999;
-        padding: 2rem;
+        padding: 2rem 1.5rem;
     }
     
     .navbar.active {
@@ -598,17 +685,17 @@ ul {
     
     .menu-item {
         margin: 0;
-        font-size: 1.6rem;
-        font-weight: 700;
+        font-size: 1.4rem;
+        font-weight: 600;
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.3s ease;
+        padding: 0.5rem 0;
     }
     
     .navbar.active .menu-item {
         opacity: 1;
         transform: translateY(0);
-        transition-delay: 0.2s;
     }
     
     .navbar.active .menu-item:nth-child(1) {
@@ -616,65 +703,136 @@ ul {
     }
     
     .navbar.active .menu-item:nth-child(2) {
-        transition-delay: 0.2s;
+        transition-delay: 0.15s;
     }
     
     .navbar.active .menu-item:nth-child(3) {
-        transition-delay: 0.3s;
+        transition-delay: 0.2s;
     }
     
     .navbar.active .menu-item:nth-child(4) {
-        transition-delay: 0.4s;
+        transition-delay: 0.25s;
     }
     
     .navbar.active .menu-item:nth-child(5) {
-        transition-delay: 0.5s;
+        transition-delay: 0.3s;
     }
     
     .navbar.active .menu-item:nth-child(6) {
-        transition-delay: 0.6s;
-    }
-
-    /* Timeline Mobile */
-    .timeline::after {
-        left: 31px;
-    }
-    
-    .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-    
-    .timeline-item::after {
-        left: 21px;
-    }
-    
-    .left::after, .right::after {
-        left: 21px;
-    }
-    
-    .right {
-        left: 0%;
-    }
-
-    .left {
-        text-align: left;
+        transition-delay: 0.35s;
     }
 }
 
 @media (max-width: 480px) {
-    .title {
-        font-size: 2rem;
+    .header {
+        padding: 0 1rem;
+        height: 65px;
     }
     
-    .subtitle {
-        font-size: 0.65rem;
-        letter-spacing: 1.5px;
+    .logo {
+        height: 35px;
+        width: 35px;
+    }
+    
+    .header1 {
+        min-height: 550px;
+        padding-top: 65px;
+    }
+    
+    .hero-content {
+        gap: 1.25rem;
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 14vw, 3.5rem);
+    }
+    
+    .role-badge {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.6rem;
+    }
+    
+    .separator {
+        height: 14px;
+        margin: 0 0.3rem;
+    }
+    
+    .container {
+        padding: 3rem 1rem;
     }
     
     .homepic {
-        max-width: 240px;
+        max-width: 260px;
+        box-shadow: 10px 10px 0 var(--primary-color), 0 5px 20px rgba(0,0,0,0.15);
+    }
+    
+    .welcome-text {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+    
+    section {
+        padding: 4rem 0;
+    }
+    
+    .section-content {
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+    
+    .section-heading {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-text {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+    
+    .glass-card {
+        padding: 1.5rem 1.25rem;
+    }
+    
+    .journey-card {
+        padding: 1.5rem;
+    }
+    
+    .journey-number {
+        font-size: 1.75rem;
+    }
+    
+    .journey-title {
+        font-size: 1.15rem;
+    }
+    
+    .journey-description {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .navbar {
+        padding: 1.5rem 1rem;
+    }
+    
+    .menu-item {
+        font-size: 1.25rem;
+    }
+    
+    .up {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
     }
 }
 

@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/assets/img/F37D15 - avatar nBG.png",
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
 };
 
 export default function RootLayout({

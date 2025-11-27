@@ -15,24 +15,51 @@ export default function Header() {
       } else {
         setScrolled(false);
       }
+      if (menuOpen) {
+        setMenuOpen(false);
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+      }
+    };
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (menuOpen && !target.closest('.navbar') && !target.closest('.hamburger')) {
+        setMenuOpen(false);
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    document.addEventListener("click", handleClickOutside);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
     if (!menuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     }
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
     document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.width = "";
   };
 
   return (
