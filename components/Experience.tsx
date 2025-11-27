@@ -31,14 +31,14 @@ export default function Experience() {
     <section className="section-light section-xp" id="vitae">
       <div className="section-content">
         <div className="section-title">Experience</div>
-        <ScrollReveal>
+        <ScrollReveal animation="fadeUp">
           <h3 className="section-heading">My Journey</h3>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="journey-grid">
-            {experiences.map((exp, index) => (
-              <div key={index} className="journey-card">
+        <div className="journey-grid">
+          {experiences.map((exp, index) => (
+            <ScrollReveal key={index} animation="fadeUp" delay={index * 0.15}>
+              <div className="journey-card">
                 <div className="journey-card-header">
                   <span className="journey-number">{String(index + 1).padStart(2, '0')}</span>
                   <span className="journey-date">{exp.date}</span>
@@ -46,11 +46,11 @@ export default function Experience() {
                 <h4 className="journey-title">{exp.title}</h4>
                 <p className="journey-description">{exp.description}</p>
               </div>
-            ))}
-          </div>
-        </ScrollReveal>
+            </ScrollReveal>
+          ))}
+        </div>
 
-        <ScrollReveal>
+        <ScrollReveal animation="fadeUp" delay={0.4}>
           <Link href="/vitae" className="btn" style={{ marginTop: "3rem" }}>
             View Full Resume
           </Link>

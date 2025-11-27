@@ -26,12 +26,19 @@
     padding: 0;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: var(--font-poppins), sans-serif;
     color: var(--text-color);
     line-height: 1.8;
     background-color: var(--bg-light);
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: pan-y;
@@ -497,6 +504,8 @@ ul {
     
     .container {
         padding: 4rem 1.5rem;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .welcome-section {
@@ -504,6 +513,8 @@ ul {
         align-items: center;
         gap: 2.5rem;
         width: 100%;
+        max-width: 100%;
+        padding: 0;
     }
     
     .homepic {
@@ -524,6 +535,8 @@ ul {
         max-width: 100%;
         width: 100%;
         text-align: center;
+        padding: 0;
+        box-sizing: border-box;
     }
     
     .welcome-text {
@@ -534,6 +547,7 @@ ul {
         word-wrap: break-word;
         overflow-wrap: break-word;
         hyphens: auto;
+        max-width: 100%;
     }
     
     .signature {
@@ -564,6 +578,7 @@ ul {
     .section-heading {
         font-size: 2rem;
         margin-bottom: 2rem;
+        white-space: nowrap;
     }
     
     .section-heading::after {
@@ -779,6 +794,8 @@ ul {
     
     .container {
         padding: 3rem 1rem;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .welcome-section {
@@ -816,6 +833,7 @@ ul {
     .section-heading {
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
+        white-space: nowrap;
     }
     
     .section-text {
@@ -873,6 +891,8 @@ ul {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 8rem 2rem;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* --- Welcome Section --- */
@@ -884,6 +904,8 @@ ul {
     gap: 5rem;
     text-align: left;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .homepic {
@@ -908,6 +930,8 @@ ul {
     max-width: 60ch;
     flex: 1;
     min-width: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .welcome-text {
