@@ -5,7 +5,7 @@ export default function Welcome() {
   return (
     <div className="container">
       <ScrollReveal>
-        <div className="contain welcome-section">
+        <div className="welcome-section">
           <Image
             src="/assets/img/home_photo.jpg"
             className="homepic"
