@@ -45,20 +45,21 @@ export default function ScrollReveal({
   className = "",
   animation = "fadeUp",
   delay = 0,
-  duration = 0.6,
+  duration = 0.8,
 }: ScrollRevealProps) {
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-10% 0px" }}
       variants={animations[animation]}
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: [0.22, 1, 0.36, 1],
       }}
       className={className}
+      style={{ willChange: "transform, opacity", transform: "translateZ(0)" }}
     >
       {children}
     </motion.div>

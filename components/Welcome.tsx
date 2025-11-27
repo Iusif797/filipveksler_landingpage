@@ -13,6 +13,9 @@ export default function Welcome() {
             width={500}
             height={500}
             priority
+            sizes="(max-width: 768px) 100vw, 500px"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
           />
         </ScrollReveal>
         <div className="welcome-content">

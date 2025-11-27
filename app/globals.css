@@ -3,21 +3,28 @@
 :root {
     --primary-color: #a51b30;
     --primary-dark: #801525;
-    --secondary-color: #1a1a1a;
-    --text-color: #333;
-    --text-light: #f4f4f4;
-    --bg-light: #f9f9f9;
-    --bg-dark: #111;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    --card-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
-    --card-hover-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+    --secondary-color: #111111;
+    --text-color: #222222;
+    --text-light: #f8f8f8;
+    --bg-light: #ffffff;
+    --bg-dark: #0a0a0a;
+    
+    /* Premium Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    
+    /* Elegant Shadows */
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    
     --font-serif: "Noto Serif", serif;
     --font-sans: "Noto Sans", sans-serif;
     --max-width: 1100px;
     --header-height: 80px;
-    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Smooth Apple-like Transition */
+    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -140,13 +147,14 @@ ul {
 
 .journey-card {
     background: white;
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 2.5rem;
     box-shadow: var(--card-shadow);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    will-change: transform, box-shadow;
 }
 
 .journey-card::before {
@@ -323,6 +331,13 @@ ul {
     transition: all 0.8s ease-out;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
@@ -331,20 +346,21 @@ ul {
 /* --- Buttons --- */
 .btn {
     display: inline-block;
-    padding: 1.2rem 3rem;
+    padding: 1rem 2.5rem;
     font-family: var(--font-sans);
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     background: transparent;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    border-radius: 50px;
 }
 
 .btn::before {
@@ -355,7 +371,7 @@ ul {
     width: 0;
     height: 100%;
     background-color: var(--primary-color);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: -1;
 }
 
@@ -587,13 +603,14 @@ section {
 
 /* --- Glassmorphism --- */
 .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 4rem;
     box-shadow: var(--glass-shadow);
+    will-change: transform;
 }
 
 /* --- Section Variants --- */
