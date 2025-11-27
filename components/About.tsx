@@ -1,0 +1,23 @@
+import Link from "next/link";
+import ScrollReveal from "./ScrollReveal";
+
+export default function About() {
+  return (
+    <section className="section-dark section-bio" id="about">
+      <div className="section-content">
+        <div className="section-title">Biography</div>
+        <ScrollReveal>
+          <div className="glass-card">
+            <h3 className="section-heading">About Me</h3>
+            <p className="section-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae numquam animi, consequuntur aliquid amet quidem illo fugit neque eius porro sequi rerum minima autem distinctio id nisi suscipit velit eveniet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste nihil ducimus aperiam cupiditate voluptatem molestias atque, delectus in optio suscipit repellat magni nulla, incidunt quae quisquam quasi asperiores quos? Rem? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, distinctio. Cum quis necessitatibus et eum? Nobis, excepturi a quae laudantium voluptatibus voluptatum ducimus pariatur quisquam sapiente? Corporis quibusdam atque qui!
+            </p>
+            <Link href="/about" className="btn">
+              Read More
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
