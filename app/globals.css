@@ -29,6 +29,7 @@
 html {
     overflow-x: hidden;
     width: 100%;
+    position: relative;
 }
 
 body {
@@ -39,9 +40,11 @@ body {
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: pan-y;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -123,10 +126,16 @@ ul {
 /* --- Journey Grid --- */
 .journey-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     width: 100%;
     margin: 3rem 0;
+}
+
+@media (max-width: 768px) {
+    .journey-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .journey-card {
@@ -289,6 +298,7 @@ ul {
 
 /* --- Hero Section --- */
 .header1 {
+    background-color: #111;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url("/assets/img/header_photo.jpg");
     background-size: cover;
     background-position: center;
@@ -427,464 +437,12 @@ ul {
     background-color: white;
 }
 
-/* --- Media Queries --- */
-@media (max-width: 1024px) {
-    .title {
-        font-size: 4.5rem;
-    }
-    
-    .section-title {
-        font-size: 6rem;
-    }
-    
-    .welcome-section {
-        gap: 3rem;
-        flex-wrap: wrap;
-    }
-    
-    .homepic {
-        width: 380px;
-        height: 380px;
-        max-width: 100%;
-    }
-    
-    .welcome-content {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        padding: 0 1.5rem;
-        height: 70px;
-    }
-    
-    .logo {
-        height: 40px;
-        width: 40px;
-    }
-    
-    .navbar {
-        display: flex;
-    }
-    
-    .header1 {
-        height: 100vh;
-        min-height: 600px;
-        background-attachment: scroll;
-        padding-top: 70px;
-    }
-    
-    .hero-content {
-        gap: 1.5rem;
-        padding: 0 1.5rem;
-    }
-    
-    .hero-title {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-        line-height: 1.1;
-    }
-    
-    .hero-subtitle {
-        gap: 0;
-        margin-top: 1rem;
-        flex-wrap: wrap;
-    }
-    
-    .role-badge {
-        padding: 0.5rem 0.9rem;
-        font-size: 0.65rem;
-        letter-spacing: 0.05em;
-    }
-    
-    .separator {
-        height: 16px;
-        margin: 0 0.4rem;
-    }
-    
-    .container {
-        padding: 4rem 1.5rem;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .welcome-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5rem;
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-    }
-    
-    .homepic {
-        width: 100%;
-        max-width: 320px;
-        height: auto;
-        aspect-ratio: 1/1;
-        box-shadow: 12px 12px 0 var(--primary-color), 0 6px 25px rgba(0,0,0,0.2);
-        margin: 0 auto;
-    }
-    
-    .homepic:hover {
-        transform: translate(-2px, -2px) rotate(0.5deg);
-        box-shadow: 14px 14px 0 var(--primary-color), 0 8px 30px rgba(0,0,0,0.25);
-    }
-    
-    .welcome-content {
-        max-width: 100%;
-        width: 100%;
-        text-align: center;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    .welcome-text {
-        font-size: 1rem;
-        text-align: left;
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-        max-width: 100%;
-    }
-    
-    .signature {
-        width: 120px;
-        margin: 1rem auto 0;
-        display: block;
-    }
-    
-    .signature-block {
-        text-align: left;
-    }
-    
-    section {
-        padding: 5rem 0;
-    }
-    
-    .section-content {
-        padding: 0 1.5rem;
-    }
-    
-    .section-title {
-        font-size: 4rem;
-        top: 10%;
-        opacity: 0.04;
-        letter-spacing: 8px;
-    }
-    
-    .section-heading {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        white-space: nowrap;
-    }
-    
-    .section-heading::after {
-        width: 50px;
-        height: 2px;
-        margin: 0.8rem auto 0;
-    }
-    
-    .section-text {
-        font-size: 1rem;
-        text-align: left;
-        line-height: 1.8;
-        margin-bottom: 2.5rem;
-    }
-    
-    .glass-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    .journey-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
-    
-    .journey-card {
-        padding: 1.75rem;
-        border-radius: 16px;
-    }
-    
-    .journey-card-header {
-        margin-bottom: 1.25rem;
-    }
-    
-    .journey-number {
-        font-size: 2rem;
-    }
-    
-    .journey-date {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-    }
-    
-    .journey-title {
-        font-size: 1.25rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .journey-description {
-        font-size: 0.9rem;
-        line-height: 1.7;
-    }
-    
-    .card-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .card-content {
-        padding: 1.25rem;
-    }
-    
-    .card-title {
-        font-size: 1.1rem;
-    }
-    
-    .card-excerpt {
-        font-size: 0.85rem;
-    }
-    
-    .btn {
-        padding: 1rem 2rem;
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-        font-size: 0.85rem;
-        letter-spacing: 1.5px;
-    }
-    
-    .up {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    
-    .upIcon {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .hamburger {
-        display: block;
-        width: 30px;
-        height: 30px;
-    }
-    
-    .bar {
-        width: 25px;
-        height: 2px;
-        margin: 4px auto;
-    }
-    
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    .navbar {
-        position: fixed;
-        left: -100%;
-        top: 0;
-        gap: 1.5rem;
-        flex-direction: column;
-        background-color: rgba(10, 10, 10, 0.98);
-        width: 100%;
-        height: 100vh;
-        text-align: center;
-        transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-        justify-content: center;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        z-index: 999;
-        padding: 2rem 1.5rem;
-    }
-    
-    .navbar.active {
-        left: 0;
-    }
-    
-    .menu-item {
-        margin: 0;
-        font-size: 1.4rem;
-        font-weight: 600;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.3s ease;
-        padding: 0.5rem 0;
-    }
-    
-    .navbar.active .menu-item {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .navbar.active .menu-item:nth-child(1) {
-        transition-delay: 0.1s;
-    }
-    
-    .navbar.active .menu-item:nth-child(2) {
-        transition-delay: 0.15s;
-    }
-    
-    .navbar.active .menu-item:nth-child(3) {
-        transition-delay: 0.2s;
-    }
-    
-    .navbar.active .menu-item:nth-child(4) {
-        transition-delay: 0.25s;
-    }
-    
-    .navbar.active .menu-item:nth-child(5) {
-        transition-delay: 0.3s;
-    }
-    
-    .navbar.active .menu-item:nth-child(6) {
-        transition-delay: 0.35s;
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        padding: 0 1rem;
-        height: 65px;
-    }
-    
-    .logo {
-        height: 35px;
-        width: 35px;
-    }
-    
-    .header1 {
-        min-height: 550px;
-        padding-top: 65px;
-    }
-    
-    .hero-content {
-        gap: 1.25rem;
-        padding: 0 1rem;
-    }
-    
-    .hero-title {
-        font-size: clamp(2rem, 14vw, 3.5rem);
-    }
-    
-    .role-badge {
-        padding: 0.45rem 0.75rem;
-        font-size: 0.6rem;
-    }
-    
-    .separator {
-        height: 14px;
-        margin: 0 0.3rem;
-    }
-    
-    .container {
-        padding: 3rem 1rem;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .welcome-section {
-        gap: 2rem;
-    }
-    
-    .homepic {
-        max-width: 280px;
-        box-shadow: 10px 10px 0 var(--primary-color), 0 5px 20px rgba(0,0,0,0.15);
-    }
-    
-    .welcome-text {
-        font-size: 0.95rem;
-        line-height: 1.75;
-        text-align: left;
-    }
-    
-    .welcome-content {
-        text-align: center;
-    }
-    
-    section {
-        padding: 4rem 0;
-    }
-    
-    .section-content {
-        padding: 0 1rem;
-    }
-    
-    .section-title {
-        font-size: 3rem;
-        letter-spacing: 5px;
-    }
-    
-    .section-heading {
-        font-size: 1.75rem;
-        margin-bottom: 1.5rem;
-        white-space: nowrap;
-    }
-    
-    .section-text {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-    }
-    
-    .glass-card {
-        padding: 1.5rem 1.25rem;
-    }
-    
-    .journey-card {
-        padding: 1.5rem;
-    }
-    
-    .journey-number {
-        font-size: 1.75rem;
-    }
-    
-    .journey-title {
-        font-size: 1.15rem;
-    }
-    
-    .journey-description {
-        font-size: 0.85rem;
-    }
-    
-    .btn {
-        padding: 0.9rem 1.5rem;
-        font-size: 0.8rem;
-    }
-    
-    .navbar {
-        padding: 1.5rem 1rem;
-    }
-    
-    .menu-item {
-        font-size: 1.25rem;
-    }
-    
-    .up {
-        bottom: 15px;
-        right: 15px;
-        width: 45px;
-        height: 45px;
-    }
-}
 
 /* --- Main Container --- */
 .main {
     width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 .container {
@@ -892,7 +450,7 @@ ul {
     margin: 0 auto;
     padding: 8rem 2rem;
     width: 100%;
-    overflow-x: hidden;
+    position: relative;
 }
 
 /* --- Welcome Section --- */
@@ -906,6 +464,7 @@ ul {
     width: 100%;
     max-width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .homepic {
@@ -960,19 +519,22 @@ ul {
 section {
     position: relative;
     padding: 8rem 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .section-content {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
     z-index: 2;
+    box-sizing: border-box;
 }
 
 .section-title {
@@ -1158,10 +720,16 @@ section {
 /* --- Card Grid (Blog & Research) --- */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     width: 100%;
     margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .hover-card {
@@ -1215,4 +783,583 @@ section {
     color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 4.5rem;
+    }
+    
+    .section-title {
+        font-size: 6rem;
+    }
+    
+    .welcome-section {
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+    
+    .homepic {
+        width: 380px;
+        height: 380px;
+        max-width: 100%;
+    }
+    
+    .welcome-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 1.25rem;
+        height: 70px;
+    }
+    
+    .logo {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .navbar {
+        display: flex;
+    }
+    
+    .header1 {
+        height: 100vh;
+        height: 100dvh;
+        min-height: 500px;
+        background-attachment: scroll;
+        padding-top: 70px;
+    }
+    
+    .hero-content {
+        gap: 1.5rem;
+        padding: 0 1.25rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 11vw, 4rem);
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        gap: 0.5rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .role-badge {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.04em;
+    }
+    
+    .separator {
+        display: none;
+    }
+    
+    .container {
+        padding: 1.5rem 1rem;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .welcome-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .homepic {
+        width: 280px;
+        height: 280px;
+        max-width: 100%;
+        aspect-ratio: 1/1;
+        box-shadow: 10px 10px 0 var(--primary-color), 0 6px 20px rgba(0,0,0,0.2);
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .homepic:hover {
+        transform: none;
+        box-shadow: 10px 10px 0 var(--primary-color), 0 6px 20px rgba(0,0,0,0.2);
+    }
+    
+    .welcome-content {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+        display: block;
+    }
+    
+    .welcome-text {
+        font-size: 0.95rem;
+        text-align: left;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        word-wrap: normal;
+        overflow-wrap: break-word;
+        hyphens: none;
+        max-width: 100%;
+        color: #444;
+    }
+    
+    .signature {
+        width: 100px;
+        margin: 0.5rem 0 0;
+        display: block;
+    }
+    
+    .signature-block {
+        text-align: left;
+    }
+    
+    section {
+        padding: 1.5rem 0;
+    }
+    
+    .section-content {
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        top: 5%;
+        opacity: 0.03;
+        letter-spacing: 4px;
+        display: none;
+    }
+    
+    .section-heading {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        white-space: nowrap;
+    }
+    
+    .section-heading::after {
+        width: 30px;
+        height: 2px;
+        margin: 0.4rem auto 0;
+    }
+    
+    .section-text {
+        font-size: 0.9rem;
+        text-align: left;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+    
+    .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1rem 0;
+        width: 100%;
+    }
+    
+    .journey-card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    
+    .journey-card:hover {
+        transform: none;
+    }
+    
+    .journey-card-header {
+        margin-bottom: 1rem;
+    }
+    
+    .journey-number {
+        font-size: 1.75rem;
+    }
+    
+    .journey-date {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.7rem;
+    }
+    
+    .journey-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .journey-description {
+        font-size: 0.85rem;
+        line-height: 1.65;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        width: 100%;
+    }
+    
+    .hover-card {
+        border-radius: 12px;
+    }
+    
+    .hover-card:hover {
+        transform: none;
+    }
+    
+    .card-img {
+        height: 180px;
+    }
+    
+    .card-content {
+        padding: 1.25rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-excerpt {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+    
+    .btn {
+        padding: 0.9rem 1.75rem;
+        width: auto;
+        max-width: 100%;
+        text-align: center;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        display: inline-block;
+    }
+    
+    .up {
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    
+    .upIcon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .hamburger {
+        display: block;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .bar {
+        width: 24px;
+        height: 2px;
+        margin: 5px auto;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    .navbar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        gap: 1.25rem;
+        flex-direction: column;
+        background-color: rgba(10, 10, 10, 0.98);
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        text-align: center;
+        transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        justify-content: center;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 999;
+        padding: 2rem 1.25rem;
+    }
+    
+    .navbar.active {
+        left: 0;
+    }
+    
+    .menu-item {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        padding: 0.6rem 0;
+    }
+    
+    .navbar.active .menu-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .navbar.active .menu-item:nth-child(1) { transition-delay: 0.1s; }
+    .navbar.active .menu-item:nth-child(2) { transition-delay: 0.15s; }
+    .navbar.active .menu-item:nth-child(3) { transition-delay: 0.2s; }
+    .navbar.active .menu-item:nth-child(4) { transition-delay: 0.25s; }
+    .navbar.active .menu-item:nth-child(5) { transition-delay: 0.3s; }
+    .navbar.active .menu-item:nth-child(6) { transition-delay: 0.35s; }
+    
+    .footer {
+        padding: 2rem 1.25rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0 1rem;
+        height: 60px;
+    }
+    
+    .logo {
+        height: 32px;
+        width: 32px;
+    }
+    
+    .header1 {
+        min-height: 480px;
+        padding-top: 60px;
+    }
+    
+    .hero-content {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 13vw, 3rem);
+    }
+    
+    .role-badge {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.55rem;
+    }
+    
+    .container {
+        padding: 2.5rem 1rem;
+    }
+    
+    .welcome-section {
+        gap: 1.75rem;
+    }
+    
+    .homepic {
+        max-width: 240px;
+        box-shadow: 8px 8px 0 var(--primary-color), 0 4px 16px rgba(0,0,0,0.15);
+    }
+    
+    .welcome-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    
+    .welcome-content {
+        text-align: left;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    .section-content {
+        padding: 0 1rem;
+    }
+    
+    .section-heading {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .section-text {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .glass-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .journey-grid {
+        gap: 1rem;
+    }
+    
+    .journey-card {
+        padding: 1.25rem;
+    }
+    
+    .journey-number {
+        font-size: 1.5rem;
+    }
+    
+    .journey-date {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .journey-title {
+        font-size: 1.05rem;
+    }
+    
+    .journey-description {
+        font-size: 0.8rem;
+    }
+    
+    .card-grid {
+        gap: 1rem;
+    }
+    
+    .card-img {
+        height: 160px;
+    }
+    
+    .card-content {
+        padding: 1rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .card-excerpt {
+        font-size: 0.8rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .navbar {
+        padding: 1.5rem 1rem;
+    }
+    
+    .menu-item {
+        font-size: 1.15rem;
+        padding: 0.5rem 0;
+    }
+    
+    .up {
+        bottom: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .upIcon {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .signature {
+        width: 90px;
+    }
+    
+    .footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .header {
+        padding: 0 0.75rem;
+        height: 56px;
+    }
+    
+    .logo {
+        height: 28px;
+        width: 28px;
+    }
+    
+    .header1 {
+        min-height: 450px;
+        padding-top: 56px;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.75rem, 12vw, 2.5rem);
+    }
+    
+    .role-badge {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.5rem;
+    }
+    
+    .container {
+        padding: 2rem 0.75rem;
+    }
+    
+    .homepic {
+        max-width: 200px;
+        box-shadow: 6px 6px 0 var(--primary-color), 0 3px 12px rgba(0,0,0,0.15);
+    }
+    
+    .welcome-text {
+        font-size: 0.85rem;
+    }
+    
+    .section-content {
+        padding: 0 0.75rem;
+    }
+    
+    .section-heading {
+        font-size: 1.35rem;
+    }
+    
+    .glass-card {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .journey-card {
+        padding: 1rem;
+    }
+    
+    .journey-number {
+        font-size: 1.25rem;
+    }
+    
+    .journey-title {
+        font-size: 1rem;
+    }
+    
+    .card-content {
+        padding: 0.85rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.7rem;
+    }
+    
+    .menu-item {
+        font-size: 1.1rem;
+    }
+    
+    .up {
+        bottom: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+    }
 }

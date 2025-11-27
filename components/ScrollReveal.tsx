@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, ReactNode } from "react";
-import { motion, useInView, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 type AnimationType = "fadeUp" | "fadeDown" | "fadeLeft" | "fadeRight" | "scale" | "fade";
 
@@ -15,23 +15,23 @@ interface ScrollRevealProps {
 
 const animations: Record<AnimationType, Variants> = {
   fadeUp: {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
   },
   fadeDown: {
-    hidden: { opacity: 0, y: -60 },
+    hidden: { opacity: 0, y: -30 },
     visible: { opacity: 1, y: 0 },
   },
   fadeLeft: {
-    hidden: { opacity: 0, x: -60 },
+    hidden: { opacity: 0, x: -30 },
     visible: { opacity: 1, x: 0 },
   },
   fadeRight: {
-    hidden: { opacity: 0, x: 60 },
+    hidden: { opacity: 0, x: 30 },
     visible: { opacity: 1, x: 0 },
   },
   scale: {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: { opacity: 1, scale: 1 },
   },
   fade: {
@@ -47,14 +47,11 @@ export default function ScrollReveal({
   delay = 0,
   duration = 0.6,
 }: ScrollRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
       variants={animations[animation]}
       transition={{
         duration,
